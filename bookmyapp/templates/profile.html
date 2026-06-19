@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .profile-card{
+            width:400px;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align:center;
+            color:#e50914;
+        }
+
+        .info{
+            margin:15px 0;
+            font-size:18px;
+        }
+
+        .label{
+            font-weight:bold;
+        }
+
+        .btn{
+            display:block;
+            text-align:center;
+            background:#e50914;
+            color:white;
+            padding:10px;
+            text-decoration:none;
+            border-radius:5px;
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-card">
+    {% if user.profile_pic %}
+        <div style="text-align:center; margin-bottom:20px;">
+            <img src="{{ user.profile_pic.url }}"
+                 alt="Profile Picture"
+                 width="150"
+                 height="150"
+                 style="border-radius:50%; object-fit:cover; border:3px solid #e50914;">
+        </div>
+    {% endif %}
+
+    <h2>My Profile</h2>
+
+    <div class="info">
+        <span class="label">Name:</span> {{ user.name }}
+    </div>
+
+    <div class="info">
+        <span class="label">Email:</span> {{ user.email }}
+    </div>
+
+    <div style="margin-top:20px; text-align:center;">
+        <a href="{% url 'edit_profile' %}" class="btn">Edit Profile</a>
+    </div>
+
+    <div style="margin-top:10px; text-align:center;">
+        <a href="{% url 'home' %}" class="btn">Home</a>
+    </div>
+
+</div>
+</body>
+</html>

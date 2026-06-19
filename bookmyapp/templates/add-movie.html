@@ -1,0 +1,10 @@
+<h2>Add Movie</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="text" name="name" placeholder="Movie Name" required>
+    <input type="file" name="image" required>
+
+    <button type="submit">Save Movie</button>
+</form>
