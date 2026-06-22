@@ -3,8 +3,20 @@
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 
-    <input type="text" name="name" placeholder="Movie Name" required>
-    <input type="file" name="image" required>
+    <label>Movie Name</label>
+    <input type="text" name="name" required>
 
-    <button type="submit">Save Movie</button>
+    <label>Genre</label>
+    <input type="text" name="genre" required>
+
+    <label>Duration</label>
+    <input type="text" name="duration" placeholder="2h 30m" required>
+
+    <label>Movie Poster</label>
+    <input type="file" name="image" accept="image/*" required>
+
+    <label>Trailer Video</label>
+    <input type="file" name="video" accept="video/*">
+
+    <button type="submit">Add Movie</button>
 </form>
